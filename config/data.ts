@@ -1,4 +1,5 @@
 import { AtSignIcon, ClapperboardIcon, SearchCheckIcon } from "lucide-react";
+import type { TPackage } from "@/types";
 
 export const navLinks = [
   {
@@ -80,33 +81,10 @@ export const services = [
   },
 ];
 
-export const slides = [
+export const packagesList: TPackage[] = [
   {
-    title: "Teachers Day",
-    video: "/vid.webm",
-    href: "/tourism",
-    description:
-      "Celebrating educators and their impact through inspiring stories, events, and moments that honor teachers and their dedication.",
-  },
-  {
-    title: "Fatherhood Tech - Summer Camp",
-    video: "/vid.webm",
-    href: "/restaurants",
-    description:
-      "An engaging summer camp experience blending technology, creativity, and mentorship to empower fathers and young innovators.",
-  },
-  {
-    title: "Worldwide Construction",
-    video: "/vid.webm",
-    href: "/housing",
-    description:
-      "Showcasing modern construction projects and innovative building solutions shaping communities across the world.",
-  },
-  {
-    title: "Patriot BBC - Social Media Rebrand",
-    video: "/vid.webm",
-    href: "/shopping",
-    description:
-      "A bold social media transformation focused on storytelling, visual identity, and digital presence for stronger audience engagement.",
+    title: "Lake Kivu",
+    media: "/img1.png",
+    mediaType: "image",
   },
 ];
