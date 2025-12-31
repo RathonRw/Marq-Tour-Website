@@ -48,6 +48,7 @@ export default function PlacesCarousel() {
                         alt={p.title}
                         className="h-full w-full rounded-lg object-cover duration-300 ease-in hover:scale-105"
                         fill
+                        placeholder="blur"
                         src={p.media}
                       />
                     </AspectRatio>

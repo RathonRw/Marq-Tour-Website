@@ -1,13 +1,21 @@
 import { AtSignIcon, ClapperboardIcon, SearchCheckIcon } from "lucide-react";
 import img1 from "@/public/img1.png";
 import img2 from "@/public/img2.png";
+import img3 from "@/public/img3.jpg";
+import img4 from "@/public/img4.jpg";
 import img5 from "@/public/img5.jpg";
 import img6 from "@/public/img6.jpg";
 import img7 from "@/public/img7.jpg";
+import img8 from "@/public/img8.jpg";
+import img9 from "@/public/img9.jpg";
+import img10 from "@/public/img10.jpg";
 import img11 from "@/public/img11.jpg";
 import img12 from "@/public/img12.jpg";
 import img13 from "@/public/img13.jpg";
+import img14 from "@/public/img14.jpg";
+import img15 from "@/public/img15.jpg";
 import img16 from "@/public/img16.jpg";
+import img17 from "@/public/img17.jpg";
 
 import type { TPackage } from "@/types";
 
@@ -92,22 +100,22 @@ export const services = [
 export const packagesList: TPackage[] = [
   {
     title: "Private Tours",
-    media: "/img1.png",
+    media: img1,
     mediaType: "image",
   },
   {
     title: "City Tours",
-    media: "/img17.jpg",
+    media: img17,
     mediaType: "image",
   },
   {
     title: "National Parks",
-    media: "/img9.jpg",
+    media: img9,
     mediaType: "image",
   },
   {
     title: "Culture",
-    media: "/img12.jpg",
+    media: img12,
     mediaType: "image",
   },
 ];
@@ -115,44 +123,44 @@ export const packagesList: TPackage[] = [
 export const homeplacesList: TPackage[] = [
   {
     title: "Mountains and volcanoes",
-    media: "/img8.jpg",
+    media: img8,
     mediaType: "image",
   },
   {
     title: "Nyungwe natonal park",
-    media: "/img10.jpg",
+    media: img10,
     mediaType: "image",
   },
   {
     title: "kigali tour",
-    media: "/img4.jpg",
+    media: img4,
     mediaType: "image",
   },
 ];
 export const destinationsList: TPackage[] = [
   {
     title: "AKAGERA NATIONAL PARK",
-    media: "/img3.jpg",
+    media: img3,
     mediaType: "image",
   },
   {
     title: "NYUNGWE NATIONAL PARK",
-    media: "/img7.jpg",
+    media: img7,
     mediaType: "image",
   },
   {
     title: "KINGS PALACE MUSEUM",
-    media: "/img14.jpg",
+    media: img14,
     mediaType: "image",
   },
   {
     title: "VOLCANOES NATIONAL PARK",
-    media: "/img16.jpg",
+    media: img16,
     mediaType: "image",
   },
   {
     title: "KIGALI CITY ",
-    media: "/img15.jpg",
+    media: img15,
     mediaType: "image",
   },
 ];

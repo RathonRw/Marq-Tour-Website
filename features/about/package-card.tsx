@@ -23,28 +23,15 @@ export function PackageCard({
   return (
     <Link href={"/booking"}>
       <Card className="relative h-full w-full overflow-hidden pt-0 shadow-xs dark:bg-background">
-        {packag.mediaType === "video" ? (
-          <AspectRatio className="bg-muted" ratio={16 / 9}>
-            <video
-              autoPlay
-              className="aspect-video h-full w-full object-cover"
-              loop
-              playsInline
-              src={packag.media}
-            >
-              <track kind="captions" src={packag.media} />
-            </video>
-          </AspectRatio>
-        ) : (
-          <AspectRatio className="bg-muted" ratio={16 / 9}>
-            <Image
-              alt={packag.title}
-              className="h-full w-full object-cover"
-              fill
-              src={packag.media}
-            />
-          </AspectRatio>
-        )}
+        <AspectRatio className="bg-muted" ratio={16 / 9}>
+          <Image
+            alt={packag.title}
+            className="h-full w-full object-cover"
+            fill
+            placeholder="blur"
+            src={packag.media}
+          />
+        </AspectRatio>
         <CardHeader>
           <CardTitle className="font-medium text-xl lg:text-2xl">
             {packag.title}

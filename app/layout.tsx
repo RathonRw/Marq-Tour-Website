@@ -8,7 +8,7 @@ import { META_THEME_COLORS, siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} - Creative agency for brands.`,
+    default: `${siteConfig.name} - Book Your Tour Today.`,
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
