@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AllImages from "@/features/gallery/all-images";
 import { ImageGallery } from "@/features/gallery/image-gallery";
 
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="">
+      <AllImages />
       <ImageGallery />
     </div>
   );

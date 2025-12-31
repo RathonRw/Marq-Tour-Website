@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import AboutContent from "@/features/about/content";
+import AboutLocation from "@/features/about/location";
 import PackageCards from "@/features/about/package-cards";
 
 export const metadata: Metadata = {
@@ -10,7 +12,9 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="">
+      <AboutContent />
       <PackageCards />
+      <AboutLocation />
     </div>
   );
 }

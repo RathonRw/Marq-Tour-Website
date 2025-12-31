@@ -1,15 +1,15 @@
-import { packagesList } from "@/config/data";
-import { PackageCard } from "./package-card";
+import { destinationsList } from "@/config/data";
+import { PackageCard } from "@/features/about/package-card";
 
-export default function PackageCards() {
+export default function DestinationsPage() {
   return (
     <section className="container space-y-7 py-16" id="packages">
       <h2 className="font-semibold font-syne-mono text-2xl md:px-5 lg:text-3xl">
-        Explore our packages
+        Explore our Destinations
       </h2>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:px-5 lg:grid-cols-3 lg:px-8">
-        {packagesList.map((packg) => (
-          <PackageCard key={packg.title} packag={packg} />
+        {destinationsList.map((packg) => (
+          <PackageCard isDestination key={packg.title} packag={packg} />
         ))}
       </div>
     </section>

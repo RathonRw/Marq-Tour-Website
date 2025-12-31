@@ -10,12 +10,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import type { TPackage } from "@/types";
 
-export function PackageCard({ packag }: { packag: TPackage }) {
+export function PackageCard({
+  packag,
+  isDestination,
+}: {
+  packag: TPackage;
+  isDestination?: boolean;
+}) {
   return (
     <Link href={"/packages"}>
-      <Card className="relative w-full overflow-hidden pt-0 shadow-xs dark:bg-background">
+      <Card className="relative h-full w-full overflow-hidden pt-0 shadow-xs dark:bg-background">
         {packag.mediaType === "video" ? (
           <AspectRatio className="bg-muted" ratio={16 / 9}>
             <video
@@ -47,7 +54,7 @@ export function PackageCard({ packag }: { packag: TPackage }) {
             {packag.title}
           </CardDescription>
         </CardHeader>
-        <CardFooter className="mt-auto">
+        <CardFooter className={cn("mt-auto", isDestination && "hidden")}>
           <div className="flex items-center gap-2">
             <Button className="rounded-full" size="icon">
               <ArrowUpRightIcon />

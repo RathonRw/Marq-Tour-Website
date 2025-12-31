@@ -8,13 +8,13 @@ import {
 export function FaqsSection() {
   return (
     <div className="container bg-background">
-      <div className="mx-auto min-h-screen w-full max-w-5xl lg:border-x">
+      <div className="mx-auto min-h-screen w-full max-w-6xl lg:border-x">
         <div className="mx-4 grid h-[calc(100vh-3.5rem)] grid-cols-1 border-x md:mx-0 md:grid-cols-2 md:border-x-0">
           <div className="space-y-4 px-4 pt-12 pb-4 md:border-r">
-            <h2 className="font-black text-3xl md:text-4xl">FAQs</h2>
+            <h2 className="font-semibold text-3xl md:text-4xl">FAQs</h2>
             <p className="text-muted-foreground">
-              Here are some common questions and answers that you might
-              encounter when using Efferd.
+              Here are some common questions and answers that you might ask
+              about Free Sky Ventures.
             </p>
           </div>
           <div className="place-content-center">
@@ -52,44 +52,45 @@ export function FaqsSection() {
 const questions = [
   {
     id: "item-1",
-    title: "What is Efferd?",
+    title: "What is Free Sky Ventures?",
     content:
-      "Efferd is a collection of beautifully crafted Shadcn UI blocks and components, designed to help developers build modern websites with ease.",
+      "Free Sky Ventures is a travel and tour company dedicated to providing high-quality, reliable, and personalized travel experiences that create lasting memories for our clients.",
   },
   {
     id: "item-2",
-    title: "Who can benefit from Efferd?",
+    title: "What services does Free Sky Ventures offer?",
     content:
-      "Efferd is built for founders, product teams, and agencies that want to accelerate idea validation and delivery.",
+      "We offer a wide range of travel services including tour packages, vacation planning, destination guidance, travel bookings, and customized itineraries tailored to individual and group needs.",
   },
   {
     id: "item-3",
-    title: "What features does Efferd include?",
+    title:
+      "What makes Free Sky Ventures different from other travel companies?",
     content:
-      "Efferd offers a collaborative workspace where you can design and build beautiful web applications, with reusable UI blocks, deployment automation, and comprehensive analytics all in one place. With Efferd, you can streamline your team’s workflow and deliver high-quality websites quickly and efficiently.",
+      "Our commitment to professionalism, attention to detail, and customer satisfaction sets us apart. We focus on delivering personalized experiences while building long-term relationships based on trust and excellence.",
   },
   {
     id: "item-4",
-    title: "Can I customize components in Efferd?",
+    title: "Can I customize my travel experience?",
     content:
-      "Yes. Efferd offers editable design systems and code scaffolding so you can tailor blocks to your brand and workflow.",
+      "Absolutely. We specialize in personalized travel planning, allowing you to customize your itinerary based on your preferences, budget, and travel goals.",
   },
   {
     id: "item-5",
-    title: "Does Efferd integrate with my existing tools?",
+    title: "Does Free Sky Ventures handle group and corporate travel?",
     content:
-      "Efferd connects with popular source control, design tools, and cloud providers to fit into your current stack.",
+      "Yes. We organize both group and corporate travel, ensuring smooth coordination, reliable logistics, and enjoyable experiences for all participants.",
   },
   {
     id: "item-6",
-    title: "How do I get support while using Efferd?",
+    title: "How does Free Sky Ventures ensure customer satisfaction?",
     content:
-      "You can access detailed docs, community forums, and dedicated customer success channels for help at any time.",
+      "We ensure satisfaction through professional service, clear communication, reliable planning, and close attention to every detail of your journey from start to finish.",
   },
   {
     id: "item-7",
-    title: "How do I get started with Efferd?",
+    title: "How do I get started with Free Sky Ventures?",
     content:
-      "You can access detailed docs, community forums, and dedicated customer success channels for help at any time.",
+      "Getting started is easy—simply contact us through our website or customer support channels, and our team will guide you through planning your perfect travel experience.",
   },
 ];

@@ -1,4 +1,14 @@
 import { AtSignIcon, ClapperboardIcon, SearchCheckIcon } from "lucide-react";
+import img1 from "@/public/img1.png";
+import img2 from "@/public/img2.png";
+import img5 from "@/public/img5.jpg";
+import img6 from "@/public/img6.jpg";
+import img7 from "@/public/img7.jpg";
+import img11 from "@/public/img11.jpg";
+import img12 from "@/public/img12.jpg";
+import img13 from "@/public/img13.jpg";
+import img16 from "@/public/img16.jpg";
+
 import type { TPackage } from "@/types";
 
 export const navLinks = [
@@ -18,7 +28,7 @@ export const navLinks = [
   },
   {
     label: "Packages",
-    href: "/packages",
+    href: "/about#packages",
   },
   {
     label: "Gallery",
@@ -83,8 +93,107 @@ export const services = [
 
 export const packagesList: TPackage[] = [
   {
-    title: "Lake Kivu",
+    title: "Private Tours",
     media: "/img1.png",
     mediaType: "image",
+  },
+  {
+    title: "City Tours",
+    media: "/img17.jpg",
+    mediaType: "image",
+  },
+  {
+    title: "National Parks",
+    media: "/img9.jpg",
+    mediaType: "image",
+  },
+  {
+    title: "Culture",
+    media: "/img12.jpg",
+    mediaType: "image",
+  },
+];
+
+export const homeplacesList: TPackage[] = [
+  {
+    title: "Mountains and volcanoes",
+    media: "/img8.jpg",
+    mediaType: "image",
+  },
+  {
+    title: "Nyungwe natonal park",
+    media: "/img10.jpg",
+    mediaType: "image",
+  },
+  {
+    title: "kigali tour",
+    media: "/img4.jpg",
+    mediaType: "image",
+  },
+];
+export const destinationsList: TPackage[] = [
+  {
+    title: "AKAGERA NATIONAL PARK",
+    media: "/img3.jpg",
+    mediaType: "image",
+  },
+  {
+    title: "NYUNGWE NATIONAL PARK",
+    media: "/img7.jpg",
+    mediaType: "image",
+  },
+  {
+    title: "KINGS PALACE MUSEUM",
+    media: "/img14.jpg",
+    mediaType: "image",
+  },
+  {
+    title: "VOLCANOES NATIONAL PARK",
+    media: "/img16.jpg",
+    mediaType: "image",
+  },
+  {
+    title: "KIGALI CITY ",
+    media: "/img15.jpg",
+    mediaType: "image",
+  },
+];
+
+export const gallery = [
+  {
+    url: img6,
+    alt: "the best",
+  },
+  {
+    url: img5,
+    alt: "the best",
+  },
+  {
+    url: img11,
+    alt: "the best",
+  },
+  {
+    url: img12,
+    alt: "the best",
+  },
+  {
+    url: img13,
+    alt: "the best",
+  },
+  {
+    url: img1,
+    alt: "the best",
+  },
+  {
+    url: img2,
+    alt: "the best",
+  },
+  {
+    url: img7,
+    alt: "the best",
+  },
+  {
+    url: img16,
+    alt: "the best",
   },
 ];
