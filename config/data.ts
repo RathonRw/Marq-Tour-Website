@@ -197,3 +197,35 @@ export const gallery = [
     alt: "the best",
   },
 ];
+
+export const departments = [
+  {
+    title: "Tour Packages Department",
+    subtitle: "Your Journey, Your Story.",
+    list: [
+      "Curated leisure tours across Rwanda and Africa",
+      "Adventure tours including hiking, safaris, and eco-tourism",
+      "Cultural and heritage travel experiences",
+      "Personalized itineraries beyond sightseeing",
+    ],
+  },
+  {
+    title: "Internship Tour Department",
+    subtitle: "Travel to Learn, Work, and Grow.",
+    list: [
+      "Educational travel programs for youth and students",
+      "Professional exposure and mentorship opportunities",
+      "Study-abroad and exchange programs",
+      "Hands-on industry experience through internships",
+    ],
+  },
+  {
+    title: "Advisory Circle Tour Department",
+    subtitle: "Guiding Visionaries in Tourism and Development.",
+    list: [
+      "Strategic tourism consultancy for businesses and startups",
+      "Mentorship and professional networking for tourism professionals",
+      "Advisory services on tourism operations, sustainability, and growth",
+    ],
+  },
+];

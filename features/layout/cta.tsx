@@ -9,22 +9,23 @@ export default function Cta() {
         <h2 className="font-syne-mono text-2xl tracking-tighter sm:text-4xl md:text-5xl">
           Ready to{" "}
           <span className="font-medium font-serif italic tracking-tight">
-            boost
+            explore
           </span>{" "}
-          your business growth with us?
+          the world with confidence?
         </h2>
         <p className="text-muted-foreground text-sm sm:text-base md:text-lg">
-          We create high-impact content, manage your social presence, and
-          optimize your SEO to attract, engage, and convert the right audience.
+          At Free Sky Ventures, we craft personalized travel experiences across
+          Rwanda and beyond, designed with care, professionalism, and attention
+          to every detail.
         </p>
         <div className="flex flex-col items-center justify-center gap-2 pt-5 md:flex-row">
           <Button asChild className="rounded-full" size="lg" variant="outline">
-            <Link href="/#services">View Our Services</Link>
+            <Link href="/about#packages">Explore Tour Packages</Link>
           </Button>
 
           <Button asChild className="rounded-full" size="lg">
             <Link href="/contact">
-              Get Started Today <ArrowUpRightIcon />
+              Plan Your Journey <ArrowUpRightIcon />
             </Link>
           </Button>
         </div>

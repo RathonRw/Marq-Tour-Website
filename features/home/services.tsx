@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
-import { services } from "@/config/data";
+import { departments } from "@/config/data";
 
 export default function Services() {
   return (
@@ -9,20 +9,29 @@ export default function Services() {
         Explore our services
       </h2>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-10">
-        {services.map((service, i) => (
+        {departments.map((department, i) => (
           <Link
             className="group cursor-pointer rounded-2xl bg-background p-10 shadow duration-300 ease-in-out hover:scale-105 hover:rounded-4xl"
             href="/contact"
             key={i}
           >
             <div className="flex h-full flex-col gap-6">
-              <service.icon className="size-9 text-foreground/70 transition-colors duration-300 ease-in-out group-hover:text-primary/70" />
-              <p className="font-semibold text-xl tracking-tight">
-                {service.title}
-              </p>
-              <p className="text-lg text-muted-foreground leading-6">
-                {service.description}
-              </p>
+              <div className="size-9 place-content-center rounded-full bg-muted text-center text-foreground/70 text-xl transition-colors duration-300 ease-in-out group-hover:bg-primary group-hover:text-primary-foreground">
+                {i + 1}
+              </div>
+              <div className="space-y-3">
+                <p className="font-bold text-xl tracking-tight">
+                  {department.title}
+                </p>
+                <p className="font-medium text-lg tracking-tight">
+                  {department.subtitle}
+                </p>
+              </div>
+              <ul className="list-disc space-y-2">
+                {department.list.map((l, i) => (
+                  <li key={i}>{l}</li>
+                ))}
+              </ul>
               <div className="mt-auto flex items-center gap-2">
                 <span className="font-semibold">Learn more</span>
                 <ArrowRightIcon className="text-primary" />
