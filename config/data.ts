@@ -13,15 +13,13 @@ import type { TPackage } from "@/types";
 
 export const navLinks = [
   {
-    label: "Home",
-    href: "/",
-  },
-
-  {
     label: "About",
     href: "/about",
   },
-
+  {
+    label: "Book now",
+    href: "/booking",
+  },
   {
     label: "Destinations",
     href: "/destinations",
@@ -43,9 +41,9 @@ export const footerLinks = [
   {
     title: "Services",
     links: [
-      { name: "Content Creation", href: "/#services", external: false },
-      { name: "Social Media Management", href: "/#services", external: false },
-      { name: "SEO Expert", href: "/#services", external: false },
+      { name: "Tour Packages", href: "/#services", external: false },
+      { name: "Tour Internships", href: "/#services", external: false },
+      { name: "Tour Advisory Circle", href: "/#services", external: false },
     ],
   },
   {

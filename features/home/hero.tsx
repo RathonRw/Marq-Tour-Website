@@ -21,15 +21,15 @@ export default function Hero() {
           </video>
           <div className="absolute inset-0 z-0 bg-black/40" />
           <div className="relative z-10 mt-auto flex flex-col gap-4 text-white">
-            <h1 className="font-semibold text-3xl lg:text-5xl">
+            <h1 className="font-semibold text-2xl md:text-3xl lg:text-5xl">
               Ready to explore Rwanda's top tourist spots?
             </h1>
-            <p className="max-w-lg">
-              Uncover Rwanda’s most beautiful destinations — from Kigali’s charm
-              to the breathtaking landscapes of the north.
+            <p className="line-clamp-3 max-w-lg">
+              Uncover Rwanda&apos;s most beautiful destinations — from
+              Kigali&apos;s charm to the breathtaking landscapes of the north.
             </p>
             <Button asChild className="w-fit rounded-full">
-              <Link href="/booking">Book your next adventure</Link>
+              <Link href="/booking">Book Now</Link>
             </Button>
           </div>
         </div>

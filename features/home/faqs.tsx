@@ -9,7 +9,7 @@ export function FaqsSection() {
   return (
     <div className="container bg-background">
       <div className="mx-auto min-h-screen w-full max-w-6xl lg:border-x">
-        <div className="mx-4 grid h-[calc(100vh-3.5rem)] grid-cols-1 border-x md:mx-0 md:grid-cols-2 md:border-x-0">
+        <div className="grid min-h-[calc(100vh-3.5rem)] grid-cols-1 border-x md:mx-0 md:grid-cols-2 md:border-x-0 lg:mx-4">
           <div className="space-y-4 px-4 pt-12 pb-4 md:border-r">
             <h2 className="font-semibold text-3xl md:text-4xl">FAQs</h2>
             <p className="text-muted-foreground">
@@ -36,7 +36,7 @@ export function FaqsSection() {
             </Accordion>
           </div>
         </div>
-        <div className="flex h-14 items-center justify-center border-t">
+        <div className="flex min-h-14 items-center justify-center border-t">
           <p className="text-muted-foreground">
             Can't find what you're looking for?{" "}
             <a className="text-primary hover:underline" href="/contact">

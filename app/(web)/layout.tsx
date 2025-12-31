@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Cta from "@/features/layout/cta";
 import SiteFooter from "@/features/layout/site-footer";
 import SiteHeader from "@/features/layout/site-header";
-
+export const metadata: Metadata = {
+  title: "Gallery",
+  alternates: {
+    canonical: "/gallery",
+  },
+};
 export default function WebLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative flex min-h-svh flex-col bg-background font-syne dark:bg-black">

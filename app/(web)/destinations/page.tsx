@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { destinationsList } from "@/config/data";
 import { PackageCard } from "@/features/about/package-card";
 
+export const metadata: Metadata = {
+  title: "Destinations",
+  alternates: {
+    canonical: "/destinations",
+  },
+};
 export default function DestinationsPage() {
   return (
     <section className="container space-y-7 py-16" id="packages">

@@ -2,7 +2,7 @@ import { BowArrow, ClockIcon, EyeIcon, HandshakeIcon } from "lucide-react";
 
 export default function Values() {
   return (
-    <div className="relative grid divide-x divide-y border *:p-12 md:grid-cols-2">
+    <div className="relative grid divide-x divide-y border *:p-6 md:grid-cols-2 lg:*:p-12">
       <div className="space-y-3">
         <div className="flex items-center gap-2">
           <EyeIcon className="size-4" />
@@ -53,7 +53,7 @@ export default function Values() {
           It supports helping developers and businesses innovate.
         </p>
         <p> At FREESKY Ventures, our values guide everything we do:</p>
-        <ul>
+        <ul className="space-y-2">
           <li>
             <span className="font-medium"> Integrity</span> : We operate with
             honesty, transparency, and accountability in all our engagements.

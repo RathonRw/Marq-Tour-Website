@@ -56,7 +56,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="row-span-2 h-full min-h-[500px] w-full p-2 md:p-6 lg:p-10">
+    <div className="row-span-2 h-full min-h-[500px] w-full p-2 py-6 md:p-6 lg:p-10">
       <form
         className="w-full space-y-6 lg:space-y-12"
         id="form-rhf-demo"

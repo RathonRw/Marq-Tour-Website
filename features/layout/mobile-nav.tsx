@@ -2,12 +2,8 @@ import { MenuIcon, XIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { createPortal } from "react-dom";
-import { FaInstagram, FaXTwitter } from "react-icons/fa6";
-import { FiYoutube } from "react-icons/fi";
-import { LuFacebook } from "react-icons/lu";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { navLinks } from "@/config/data";
-import { siteConfig } from "@/config/site";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 export function MobileNav() {
@@ -77,43 +73,6 @@ export function MobileNav() {
                     {link.label}
                   </a>
                 ))}
-              </div>
-              <div className="mt-auto">
-                <div className="mb-3 flex justify-around gap-2">
-                  <a
-                    className="text-muted-foreground transition-colors duration-150 hover:text-primary"
-                    href={siteConfig.links.youtube}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <FiYoutube className="size-6" />
-                  </a>
-                  <a
-                    className="text-muted-foreground transition-colors duration-150 hover:text-primary"
-                    href={siteConfig.links.instagram}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <LuFacebook className="size-6" />
-                  </a>
-
-                  <a
-                    className="text-muted-foreground transition-colors duration-150 hover:text-primary"
-                    href={siteConfig.links.linkedin}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <FaInstagram className="size-6" />
-                  </a>
-                  <a
-                    className="text-muted-foreground transition-colors duration-150 hover:text-primary"
-                    href={siteConfig.links.linkedin}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <FaXTwitter className="size-6" />
-                  </a>
-                </div>
               </div>
             </div>
           </div>,
