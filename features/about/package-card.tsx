@@ -21,7 +21,7 @@ export function PackageCard({
   isDestination?: boolean;
 }) {
   return (
-    <Link href={"/packages"}>
+    <Link href={"/booking"}>
       <Card className="relative h-full w-full overflow-hidden pt-0 shadow-xs dark:bg-background">
         {packag.mediaType === "video" ? (
           <AspectRatio className="bg-muted" ratio={16 / 9}>

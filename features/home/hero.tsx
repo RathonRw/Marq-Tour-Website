@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
@@ -27,8 +28,8 @@ export default function Hero() {
               Uncover Rwanda’s most beautiful destinations — from Kigali’s charm
               to the breathtaking landscapes of the north.
             </p>
-            <Button className="w-fit rounded-full">
-              Book your next adventure
+            <Button asChild className="w-fit rounded-full">
+              <Link href="/booking">Book your next adventure</Link>
             </Button>
           </div>
         </div>

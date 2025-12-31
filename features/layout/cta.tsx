@@ -24,7 +24,7 @@ export default function Cta() {
           </Button>
 
           <Button asChild className="rounded-full" size="lg">
-            <Link href="/contact">
+            <Link href="/booking">
               Plan Your Journey <ArrowUpRightIcon />
             </Link>
           </Button>
