@@ -5,7 +5,6 @@ import { Suspense } from "react";
 import { BiLogoGmail } from "react-icons/bi";
 import { FaLinkedin, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
-import { TextLoop } from "@/components/custom/text-loop";
 import { ThemeSwitcher } from "@/components/custom/theme-switcher";
 import { footerLinks } from "@/config/data";
 import { siteConfig } from "@/config/site";
@@ -112,11 +111,8 @@ export default function SiteFooter() {
                 <FooterSubForm />
               </div>
             </div>
-            <div className="mt-12 flex w-full items-center justify-between gap-5">
-              <TextLoop
-                className="text-xs text-zinc-500 lg:min-w-[200px]"
-                interval={3}
-              >
+            <div className="mt-12 flex w-full flex-wrap items-center justify-between gap-5">
+              <div className="flex flex-wrap gap-5 text-xs text-zinc-500 lg:min-w-50">
                 <Suspense>
                   <FooterDate />
                 </Suspense>
@@ -131,7 +127,7 @@ export default function SiteFooter() {
                   </a>
                   .
                 </span>
-              </TextLoop>
+              </div>
               <ThemeSwitcher />
             </div>
           </div>

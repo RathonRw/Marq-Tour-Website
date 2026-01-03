@@ -1,6 +1,6 @@
 "use client";
 import { AppProgressProvider } from "@bprogress/next";
-// import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
 import { TailwindIndicator } from "../custom/tailwind-indicator";
 import { ThemeProvider } from "./theme-provider";
@@ -18,7 +18,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       </AppProgressProvider>
       <Toaster closeButton expand position="bottom-right" />
       <TailwindIndicator />
-      {/* <Analytics /> */}
+      <Analytics />
     </ThemeProvider>
   );
 }
