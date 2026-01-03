@@ -25,7 +25,7 @@ export default function Hero() {
               Ready to explore Rwanda's top tourist spots?
             </h1>
             <p className="line-clamp-3 max-w-lg">
-              Uncover Rwanda&apos;s most beautiful destinations — from
+              Uncover Rwanda&apos;s most beautiful destinations, from
               Kigali&apos;s charm to the breathtaking landscapes of the north.
             </p>
             <Button asChild className="w-fit rounded-full">

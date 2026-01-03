@@ -5,13 +5,14 @@ import {
   MessageCircleIcon,
 } from "lucide-react";
 import { Suspense } from "react";
+import { siteConfig } from "@/config/site";
 import { ContactForm } from "./contact-form";
 
 export function ContactContent() {
   return (
     <section className="container w-full py-6">
       <div className="relative flex w-full flex-col justify-between overflow-hidden md:flex-row">
-        <div className="p-4 md:border-b-0">
+        <div className="w-full max-w-sm p-4 md:border-b-0">
           <ContactInfo />
         </div>
         <div className="flex w-full flex-1 bg-background">
@@ -45,7 +46,7 @@ function ContactInfo() {
             Email us:
           </span>{" "}
           <a className="ml-1 hover:underline" href="mailto:rathonrw@gmail.com">
-            freeskyventure@gmail.com
+            {siteConfig.links.email}
           </a>
         </p>
         <p className="text-muted-foreground tracking-tight">
@@ -62,11 +63,11 @@ function ContactInfo() {
           </span>{" "}
           <a
             className="hover:underline"
-            href="https://wa.me/250793164575"
+            href={siteConfig.links.whatsapp}
             rel="noopener noreferrer"
             target="_blank"
           >
-            +250 793164575
+            +250 735 051 443
           </a>
         </p>
       </div>

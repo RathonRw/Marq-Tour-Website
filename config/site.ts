@@ -4,13 +4,11 @@ export const siteConfig = {
   ogImage: "https://free-sky-ventures.vercel.app/opengraph-image.png",
   description: "Book your tour anywhere anytime.",
   links: {
-    twitter: "https://x.com/rathonrw",
-    linkedin: "https://www.linkedin.com/company/rathon",
-    instagram: "https://www.instagram.com/rathonrw/",
-    youtube: "https://www.youtube.com/@RathonRw",
-    email: "mailto:rathonrw@gmail.com",
-    whatsapp: "https://wa.me/250792636403",
-    github: "https://github.com/RathonRw",
+    linkedin: "https://www.linkedin.com/in/freesky-ventures-ltd-32328239a/",
+    instagram: "https://www.instagram.com/freesky_ventures/",
+    tiktok: "https://www.tiktok.com/@freesky.venture",
+    email: "mailto:freeskyventure@gmail.com",
+    whatsapp: "https://wa.me/250735051443",
   },
 };
 

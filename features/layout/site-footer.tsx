@@ -2,15 +2,43 @@ import { ArrowUpRightIcon } from "lucide-react";
 import type { Route } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
-import { FaInstagram, FaXTwitter } from "react-icons/fa6";
-import { FiYoutube } from "react-icons/fi";
-import { LuFacebook } from "react-icons/lu";
+import { BiLogoGmail } from "react-icons/bi";
+import { FaLinkedin, FaTiktok, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
 import { TextLoop } from "@/components/custom/text-loop";
 import { ThemeSwitcher } from "@/components/custom/theme-switcher";
 import { footerLinks } from "@/config/data";
 import { siteConfig } from "@/config/site";
 import FooterDate from "./footer-date";
 import FooterSubForm from "./footer-subscribe-form";
+
+const socialLinks = [
+  {
+    name: "Instagram",
+    href: siteConfig.links.instagram,
+    icon: FaInstagram,
+  },
+  {
+    name: "Linkedin",
+    href: siteConfig.links.linkedin,
+    icon: FaLinkedin,
+  },
+  {
+    name: "Tiktok",
+    href: siteConfig.links.tiktok,
+    icon: FaTiktok,
+  },
+  {
+    name: "Gmail",
+    href: siteConfig.links.email,
+    icon: BiLogoGmail,
+  },
+  {
+    name: "Whatsapp",
+    href: siteConfig.links.whatsapp,
+    icon: FaWhatsapp,
+  },
+];
 
 export default function SiteFooter() {
   return (
@@ -26,40 +54,18 @@ export default function SiteFooter() {
                 >
                   {siteConfig.name}
                 </Link>
-                <div className="flex gap-2">
-                  <a
-                    className="text-muted-foreground transition-colors duration-150 hover:text-primary"
-                    href={siteConfig.links.youtube}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <FiYoutube />
-                  </a>
-                  <a
-                    className="text-muted-foreground transition-colors duration-150 hover:text-primary"
-                    href={siteConfig.links.instagram}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <LuFacebook />
-                  </a>
-
-                  <a
-                    className="text-muted-foreground transition-colors duration-150 hover:text-primary"
-                    href={siteConfig.links.linkedin}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <FaInstagram />
-                  </a>
-                  <a
-                    className="text-muted-foreground transition-colors duration-150 hover:text-primary"
-                    href={siteConfig.links.linkedin}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <FaXTwitter />
-                  </a>
+                <div className="flex gap-4 lg:gap-6">
+                  {socialLinks.map((link) => (
+                    <a
+                      className="text-muted-foreground transition-colors duration-150 hover:text-primary"
+                      href={link.href}
+                      key={link.name}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      <link.icon className="md:size-5" />
+                    </a>
+                  ))}
                 </div>
               </div>
               {footerLinks.map((link) => (
