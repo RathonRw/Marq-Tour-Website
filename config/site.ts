@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Free Sky Ventures",
-  url: "https://free-sky-ventures.vercel.app/", // Replace with production URL
-  ogImage: "https://free-sky-ventures.vercel.app/opengraph-image.png",
+  url: "https://freeskyventures.space/", // Replace with production URL
+  ogImage: "https://freeskyventures.space/opengraph-image.png",
   description: "Book your tour anywhere anytime.",
   links: {
     linkedin: "https://www.linkedin.com/in/freesky-ventures-ltd-32328239a/",
