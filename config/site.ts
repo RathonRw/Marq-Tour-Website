@@ -7,7 +7,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/freesky-ventures-ltd-32328239a/",
     instagram: "https://www.instagram.com/freesky_ventures/",
     tiktok: "https://www.tiktok.com/@freesky.venture",
-    email: "mailto:freeskyventure@gmail.com",
+    email: "freeskyventure@gmail.com",
     whatsapp: "https://wa.me/250735051443",
   },
 };

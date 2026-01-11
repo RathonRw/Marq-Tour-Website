@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleCheckIcon, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -15,8 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { SubFormSchema, type TSubFormSchema } from "@/server/schema";
-// import { subscribe } from "@/server/subscribe.action";
-// import { subscribe } from "@/server/subscribe.action";
+import { subscribe } from "@/server/subscribe.action";
 
 export default function FooterSubForm() {
   const [submitting, setSubmitting] = useState(false);
@@ -29,36 +29,40 @@ export default function FooterSubForm() {
     },
   });
 
-  const onSubmit = (data: TSubFormSchema) => {
-    console.log(data);
-    // setSubmitting(true);
-    // const createPromise = subscribe(data);
-    // toast.promise(createPromise, {
-    //   loading: "Subscribing...",
-    // });
-    // try {
-    //   const result = await createPromise;
-    //   if (result?.success) {
-    //     setSubscribed(true); // trigger confirmation message
-    //     form.reset();
-    //     toast.success("Subscribed successfully", {
-    //       description: "You have subscribed to Kigali Digital Brand.",
-    //     });
-    //   }
-    // } catch {
-    //   toast.error("Failed to subscribe. Please try again.", {
-    //     description: "There was an error subscribing to Kigali Digital Brand.",
-    //   });
-    // } finally {
-    //   setSubmitting(false);
-    // }
+  const onSubmit = async (data: TSubFormSchema) => {
+    setSubmitting(true);
+    const createPromise = subscribe(data);
+    toast.promise(createPromise, {
+      loading: "Subscribing...",
+    });
+    try {
+      const result = await createPromise;
+      if (result?.success) {
+        setSubscribed(true); // trigger confirmation message
+        form.reset();
+        toast.success("Subscribed successfully", {
+          description: "You have subscribed to Free Sky Ventures.",
+        });
+      } else {
+        console.log(result?.error);
+        toast.error("Failed to subscribe. Please try again.", {
+          description: "There was an error subscribing to Free Sky Ventures.",
+        });
+      }
+    } catch {
+      toast.error("Failed to subscribe. Please try again.", {
+        description: "There was an error subscribing to Free Sky Ventures.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (subscribed) {
     return (
       <div className="flex flex-col gap-2">
         <p className="font-semibold text-muted-foreground text-sm">
-          You have subscribed to Kigali Digital Brand.
+          You have subscribed to Free Sky Ventures.
         </p>
         <div className="flex items-center gap-1">
           <CircleCheckIcon className="size-5 text-green-500" />

@@ -4,28 +4,9 @@ import {
   MapPinIcon,
   MessageCircleIcon,
 } from "lucide-react";
-import { Suspense } from "react";
 import { siteConfig } from "@/config/site";
-import { ContactForm } from "./contact-form";
 
-export function ContactContent() {
-  return (
-    <section className="container w-full py-6">
-      <div className="relative flex w-full flex-col justify-between overflow-hidden md:flex-row">
-        <div className="w-full max-w-sm p-4 md:border-b-0">
-          <ContactInfo />
-        </div>
-        <div className="flex w-full flex-1 bg-background">
-          <Suspense>
-            <ContactForm />
-          </Suspense>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ContactInfo() {
+export function ContactInfo() {
   return (
     <div className="flex max-w-108 flex-col gap-5 p-2 md:p-5">
       <h3 className="mb-2 font-bold text-foreground text-xl leading-[1.2] tracking-tighter">

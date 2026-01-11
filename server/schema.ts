@@ -16,9 +16,27 @@ export const ContactFormSchema = z.object({
   content: z
     .string()
     .trim()
-    .min(10, { message: "Describe it in at least 10 characters." })
-    .max(500, { message: "Your message is too long. Book a call instead." }),
+    .min(5, { message: "Describe it in at least 5 characters." }),
   service: z.string().min(1, "Please select your service."),
 });
 
 export type TContactSchema = z.infer<typeof ContactFormSchema>;
+
+export const BookingFormSchema = z.object({
+  name: z
+    .string()
+    .min(3, "Name must be at least 3 characters.")
+    .max(100, "Name must be at most 100 characters."),
+  email: z.email("Invalid email address."),
+  phone: z
+    .string()
+    .min(3, "Phone must be at least 3 characters.")
+    .max(16, "Phone must be at most 16 characters."),
+  message: z
+    .string()
+    .min(5, "Message must be at least 5 characters.")
+    .max(500, "Message must be at most 500 characters."),
+  date: z.date(),
+});
+
+export type TBookingSchema = z.infer<typeof BookingFormSchema>;

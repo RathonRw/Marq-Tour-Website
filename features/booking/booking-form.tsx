@@ -1,12 +1,10 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ChevronDownIcon } from "lucide-react";
-import type * as React from "react";
+import { ChevronDownIcon, CircleCheckIcon } from "lucide-react";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import z from "zod";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -36,28 +34,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-const formSchema = z.object({
-  name: z
-    .string()
-    .min(3, "Name must be at least 3 characters.")
-    .max(100, "Name must be at most 100 characters."),
-  email: z.email("Invalid email address."),
-  phone: z
-    .string()
-    .min(3, "Phone must be at least 3 characters.")
-    .max(16, "Phone must be at most 16 characters."),
-  message: z
-    .string()
-    .min(20, "Add a message .")
-    .max(500, "Message must be at most 500 characters."),
-  date: z.date(),
-});
+import { sendBookingEmail } from "@/server/booking.action";
+import { BookingFormSchema, type TBookingSchema } from "@/server/schema";
 
 export function BookingForm() {
   const [open, setOpen] = useState(false);
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(true);
+  const form = useForm<TBookingSchema>({
+    resolver: zodResolver(BookingFormSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -67,23 +52,52 @@ export function BookingForm() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
-    toast("Booking request submitted", {
-      description: (
-        <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-      position: "bottom-right",
-      classNames: {
-        content: "flex flex-col gap-2",
-      },
-      style: {
-        "--border-radius": "calc(var(--radius) + 4px)",
-      } as React.CSSProperties,
+  async function onSubmit(data: TBookingSchema) {
+    setSubmitting(true);
+
+    const createPromise = sendBookingEmail(data);
+
+    // Show a loading toast and auto-handle errors
+    toast.promise(createPromise, {
+      loading: "Booking...",
     });
+
+    try {
+      const result = await createPromise;
+
+      if (result?.success) {
+        form.reset();
+        setSent(true);
+
+        toast.success("Booking sent successfully", {
+          description: "Your booking has been sent to Us.",
+        });
+
+        // Close the modal slightly after success
+      }
+    } catch {
+      toast.error("Failed to book. Please try again.", {
+        description: "There was an error booking.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
+  if (sent) {
+    return (
+      <Card>
+        <CardContent className="flex flex-col items-center gap-5">
+          <CircleCheckIcon className="size-5 text-green-500" />
+          <p className="font-semibold text-lg">
+            You have booked a tour successfully.
+          </p>
+          <p className="text-muted-foreground text-sm">Thanks for booking!</p>
+          <Button onClick={() => setSent(false)}>Book Again</Button>
+        </CardContent>
+      </Card>
+    );
+  }
   return (
     <Card>
       <CardHeader>
@@ -103,7 +117,11 @@ export function BookingForm() {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel>Name</FieldLabel>
-                  <Input {...field} placeholder="Your full name" />
+                  <Input
+                    {...field}
+                    disabled={submitting}
+                    placeholder="Your full name"
+                  />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -120,6 +138,7 @@ export function BookingForm() {
                   <FieldLabel>Email</FieldLabel>
                   <Input
                     {...field}
+                    disabled={submitting}
                     placeholder="you@example.com"
                     type="email"
                   />
@@ -137,7 +156,12 @@ export function BookingForm() {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel>Phone</FieldLabel>
-                  <Input {...field} placeholder="+250 7xx xxx xxx" type="tel" />
+                  <Input
+                    {...field}
+                    disabled={submitting}
+                    placeholder="+250 7xx xxx xxx"
+                    type="tel"
+                  />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -155,6 +179,7 @@ export function BookingForm() {
                     <PopoverTrigger asChild>
                       <Button
                         className="w-48 justify-between font-normal"
+                        disabled={submitting}
                         id="date"
                         variant="outline"
                       >
@@ -194,6 +219,7 @@ export function BookingForm() {
                     <InputGroupTextarea
                       {...field}
                       className="min-h-24 resize-none"
+                      disabled={submitting}
                       placeholder="Tell us about your travel plans..."
                       rows={5}
                     />
@@ -218,11 +244,16 @@ export function BookingForm() {
 
       <CardFooter>
         <Field orientation="horizontal">
-          <Button onClick={() => form.reset()} type="button" variant="outline">
+          <Button
+            disabled={submitting}
+            onClick={() => form.reset()}
+            type="button"
+            variant="outline"
+          >
             Reset
           </Button>
-          <Button form="booking-form" type="submit">
-            Submit Booking
+          <Button disabled={submitting} form="booking-form" type="submit">
+            {submitting ? "Submitting..." : "  Submit Booking"}
           </Button>
         </Field>
       </CardFooter>

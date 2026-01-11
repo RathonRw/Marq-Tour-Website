@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   Field,
@@ -18,6 +19,7 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from "@/components/ui/input-group";
+import { sendContactEmail } from "@/server/contact.action";
 import { ContactFormSchema, type TContactSchema } from "@/server/schema";
 
 export function ContactForm() {
@@ -32,27 +34,27 @@ export function ContactForm() {
   });
 
   async function onSubmit(data: TContactSchema) {
-    // setSubmitting(true);
-    // const createPromise = sendContactEmail(data);
-    // // Show a loading toast and auto-handle errors
-    // toast.promise(createPromise, {
-    //   loading: "Sending email...",
-    // });
-    // try {
-    //   const result = await createPromise;
-    //   if (result?.success) {
-    //     form.reset();
-    //     toast.success("Email sent successfully", {
-    //       description: "The email has been sent to Kigali Digital Brand.",
-    //     });
-    //   }
-    // } catch {
-    //   toast.error("Failed to send email. Please try again.", {
-    //     description: "There was an error sending the email.",
-    //   });
-    // } finally {
-    //   setSubmitting(false);
-    // }
+    setSubmitting(true);
+    const createPromise = sendContactEmail(data);
+    // Show a loading toast and auto-handle errors
+    toast.promise(createPromise, {
+      loading: "Sending email...",
+    });
+    try {
+      const result = await createPromise;
+      if (result?.success) {
+        form.reset();
+        toast.success("Email sent successfully", {
+          description: "The email has been sent to our team.",
+        });
+      }
+    } catch {
+      toast.error("Failed to send email. Please try again.", {
+        description: "There was an error sending the email.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
