@@ -32,10 +32,7 @@ export const BookingFormSchema = z.object({
     .string()
     .min(3, "Phone must be at least 3 characters.")
     .max(16, "Phone must be at most 16 characters."),
-  message: z
-    .string()
-    .min(5, "Message must be at least 5 characters.")
-    .max(500, "Message must be at most 500 characters."),
+  message: z.string().min(5, "Message must be at least 5 characters."),
   date: z.date(),
 });
 
