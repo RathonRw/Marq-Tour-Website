@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Free Sky Ventures",
-  url: "https://freeskyventures.space/", // Replace with production URL
+  url: "https://freeskyventures.space", // Replace with production URL
   ogImage: "https://freeskyventures.space/opengraph-image.png",
   description: "Book your tour anywhere anytime.",
   links: {
