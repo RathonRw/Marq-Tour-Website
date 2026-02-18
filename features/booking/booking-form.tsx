@@ -24,23 +24,18 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroupTextarea,
-} from "@/components/ui/input-group";
-import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Textarea } from "@/components/ui/textarea";
 import { sendBookingEmail } from "@/server/booking.action";
 import { BookingFormSchema, type TBookingSchema } from "@/server/schema";
 
 export function BookingForm() {
   const [open, setOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [sent, setSent] = useState(true);
+  const [sent, setSent] = useState(false);
   const form = useForm<TBookingSchema>({
     resolver: zodResolver(BookingFormSchema),
     defaultValues: {
@@ -215,20 +210,14 @@ export function BookingForm() {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel>Message</FieldLabel>
-                  <InputGroup>
-                    <InputGroupTextarea
-                      {...field}
-                      className="min-h-24 resize-none"
-                      disabled={submitting}
-                      placeholder="Tell us about your travel plans..."
-                      rows={5}
-                    />
-                    <InputGroupAddon align="block-end">
-                      <InputGroupText className="tabular-nums">
-                        {field.value.length}/500
-                      </InputGroupText>
-                    </InputGroupAddon>
-                  </InputGroup>
+                  <Textarea
+                    {...field}
+                    className="min-h-24 resize-none"
+                    disabled={submitting}
+                    placeholder="Tell us about your travel plans..."
+                    rows={5}
+                  />
+
                   <FieldDescription>
                     Include destination, dates, and number of travelers.
                   </FieldDescription>

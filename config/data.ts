@@ -66,9 +66,18 @@ export const footerLinks = [
   {
     title: "Legal",
     links: [
-      { name: "Terms", href: "/", external: false },
-      { name: "Privacy", href: "/", external: false },
-      { name: "Cookie Policy", href: "/", external: false },
+      { name: "Terms", href: "/terms", external: false },
+      { name: "Privacy", href: "/privacy", external: false },
+      {
+        name: "Sitemap",
+        href: "/sitemap.xml",
+        external: false,
+      },
+      {
+        name: "llms.txt",
+        href: "/llms.txt",
+        external: false,
+      },
     ],
   },
 ];
@@ -233,5 +242,43 @@ export const departments = [
       "Mentorship and professional networking for tourism professionals",
       "Advisory services on tourism operations, sustainability, and growth",
     ],
+  },
+];
+
+export const terms = [
+  {
+    title: "Using Our Website",
+    content:
+      "You're free to browse, read, and learn from our content. But please don't copy, steal, or republish our work without permission. That includes text, visuals, and code we've written.",
+  },
+  {
+    title: "Subscribing to Our Newsletter",
+    content:
+      "If you subscribe to our newsletter, we'll send you emails from time to time with web design tips, agency updates, and useful content. You can unsubscribe anytime no questions asked.",
+  },
+  {
+    title: "Contact Form",
+    content:
+      "If you reach out through our contact form, please be respectful and honest. We're here to help, not to deal with spam or abuse.",
+  },
+  {
+    title: "No Guarantees",
+    content:
+      "While we do our best to provide accurate, helpful information and great service, we can't make any promises about specific results. Every project and client is unique.",
+  },
+  {
+    title: "Third-Party Links",
+    content:
+      "Sometimes we may link to tools or platforms we love. We're not responsible for anything that happens on those third-party sites  so use your best judgment when leaving our site.",
+  },
+  {
+    title: "Changes to These Terms",
+    content:
+      "We may update these terms from time to time. If it's a big change, we'll let you know. If it's something small, we'll quietly update the page. Either way, the latest version is what applies.",
+  },
+  {
+    title: "Contact Us",
+    content:
+      "Got questions about our terms? Want to partner with us or just say hi? Reach out at freeskyventure@gmail.com.",
   },
 ];
