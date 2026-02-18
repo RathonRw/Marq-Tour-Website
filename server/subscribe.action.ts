@@ -11,10 +11,11 @@ export async function subscribe(formData: TSubFormSchema) {
 
     const response = await resend.contacts.segments.add({
       email,
-      segmentId: "e91f1f21-a82e-4e02-9086-fe72d778aa76",
+      segmentId: "a5fd1b64-312f-4ed0-a2f3-140a30d3bffe",
     });
 
     if (response.error) {
+      console.log(response.error);
       return { success: false, error: response.error };
     }
 
