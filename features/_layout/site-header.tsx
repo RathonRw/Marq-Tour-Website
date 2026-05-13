@@ -32,7 +32,10 @@ export default function SiteHeader() {
             <Link
               className={cn(
                 "text-sm hover:text-muted-foreground",
-                pathname === link.href && "font-semibold",
+                pathname === link.href
+                  ? "text-foreground"
+                  : "text-muted-foreground",
+                pathname === "/" && "text-foreground",
               )}
               href={link.href as Route}
               key={i}

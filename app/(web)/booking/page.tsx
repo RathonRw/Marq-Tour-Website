@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 export default function BookingPage() {
   return (
-    <div className="container bg-background">
+    <div className="container @md:mt-30 mt-20 flex flex-col @md:gap-30 gap-20">
       <section className="mx-auto max-w-5xl py-12 md:px-5">
         <BookingForm />
       </section>

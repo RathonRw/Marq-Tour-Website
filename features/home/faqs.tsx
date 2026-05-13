@@ -12,9 +12,9 @@ export function HomeFaqs() {
     <section className="grid grid-cols-1 gap-6 md:grid-cols-2" id="faqs">
       <div className="pt-12 pb-6 md:px-4">
         <div className="space-y-5">
-          <h2 className="text-balance font-medium text-xl md:text-3xl">
+          <h3 className="text-balance font-medium text-xl md:text-3xl">
             Frequently Asked Questions
-          </h2>
+          </h3>
           <p className="font-medium text-muted-foreground text-sm">
             For other question,{" "}
             <Link className="underline underline-offset-4" href="/contact">

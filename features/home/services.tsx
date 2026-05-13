@@ -5,7 +5,7 @@ import { departments } from "@/config/data";
 export default function Services() {
   return (
     <section className="space-y-8" id="services">
-      <h2 className="font-medium text-xl md:text-2xl">Our services</h2>
+      <h3 className="font-medium text-xl md:text-2xl">Our services</h3>
       <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {departments.map((department) => (
           <div

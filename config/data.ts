@@ -148,27 +148,27 @@ export const homeplacesList: TPackage[] = [
 ];
 export const destinationsList: TPackage[] = [
   {
-    title: "AKAGERA NATIONAL PARK",
+    title: "Akagera national park",
     media: img3,
     mediaType: "image",
   },
   {
-    title: "NYUNGWE NATIONAL PARK",
+    title: "Nyungwe national park",
     media: img7,
     mediaType: "image",
   },
   {
-    title: "KINGS PALACE MUSEUM",
+    title: "Kings palace museum",
     media: img14,
     mediaType: "image",
   },
   {
-    title: "VOLCANOES NATIONAL PARK",
+    title: "Volcanoes national park",
     media: img16,
     mediaType: "image",
   },
   {
-    title: "KIGALI CITY ",
+    title: "Kigali city ",
     media: img15,
     mediaType: "image",
   },

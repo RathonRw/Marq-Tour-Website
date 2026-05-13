@@ -13,9 +13,9 @@ import { homeplacesList } from "@/config/data";
 export default function PlacesCarousel() {
   return (
     <section className="relative space-y-8">
-      <h2 className="font-medium text-xl md:text-2xl">
+      <h3 className="font-medium text-xl md:text-2xl">
         Explore Places To Visit
-      </h2>
+      </h3>
 
       <Carousel
         className="w-full"

@@ -8,5 +8,12 @@ export const metadata: Metadata = {
   },
 };
 export default function AboutPage() {
-  return <AllImages />;
+  return (
+    <div className="container @md:mt-30 mt-20 flex flex-col @md:gap-30 gap-20">
+      <section className="space-y-7" id="packages">
+        <h3 className="font-medium text-xl md:text-2xl">Explore our gallery</h3>
+        <AllImages />
+      </section>
+    </div>
+  );
 }

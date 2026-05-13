@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 export default function AboutPage() {
   return (
-    <div className="">
+    <div className="container @md:mt-30 mt-20 flex flex-col @md:gap-30 gap-20">
       <AboutContent />
       <PackageCards />
       <AboutLocation />
