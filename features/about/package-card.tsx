@@ -34,14 +34,14 @@ export function PackageCard({ packag }: { packag: TPackage }) {
           </CardDescription>
         </CardHeader>
         <CardFooter className={cn("mt-auto")}>
-          <Link className="flex items-center gap-2" href="/booking">
+          <div className="flex items-center gap-2">
             <div
               className={cn(buttonVariants({ size: "icon" }), "rounded-full")}
             >
               <ArrowUpRightIcon />
             </div>
             Book Trip
-          </Link>
+          </div>
         </CardFooter>
       </Card>
     </Link>
