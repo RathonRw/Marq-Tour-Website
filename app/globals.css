@@ -159,3 +159,15 @@
 @utility container {
   @apply 3xl:max-w-screen-2xl mx-auto max-w-[1400px] px-4 lg:px-8;
 }
+
+@layer utilities {
+  .text-h1 {
+    @apply text-balance font-medium text-[59px] leading-15;
+  }
+  .text-h2 {
+    @apply text-balance font-medium text-[32px] leading-9 md:text-[44px] lg:text-[52px] xl:text-[64px]  md:leading-12 lg:leading-13.25 xl:leading-16;
+  }
+  .text-h3 {
+    @apply text-[32px] leading-9 md:text-[38px] md:leading-11 lg:text-[42px] lg:leading-12 xl:text-[48px] xl:leading-14 font-medium text-balance;
+  }
+}

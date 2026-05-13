@@ -7,14 +7,7 @@ import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Field,
   FieldDescription,
@@ -94,158 +87,145 @@ export function BookingForm() {
     );
   }
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Book Your Tour</CardTitle>
-        <CardDescription>
-          Fill in the details below and our team will contact you shortly.
-        </CardDescription>
-      </CardHeader>
+    <div className="mx-auto flex w-full flex-col justify-center gap-8 sm:max-w-140">
+      <form id="booking-form" onSubmit={form.handleSubmit(onSubmit)}>
+        <FieldGroup>
+          {/* Name */}
+          <Controller
+            control={form.control}
+            name="name"
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel>Name</FieldLabel>
+                <Input
+                  {...field}
+                  disabled={submitting}
+                  placeholder="Your full name"
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
 
-      <CardContent>
-        <form id="booking-form" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
-            {/* Name */}
-            <Controller
-              control={form.control}
-              name="name"
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel>Name</FieldLabel>
-                  <Input
-                    {...field}
-                    disabled={submitting}
-                    placeholder="Your full name"
-                  />
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
+          {/* Email */}
+          <Controller
+            control={form.control}
+            name="email"
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel>Email</FieldLabel>
+                <Input
+                  {...field}
+                  disabled={submitting}
+                  placeholder="you@example.com"
+                  type="email"
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
 
-            {/* Email */}
-            <Controller
-              control={form.control}
-              name="email"
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel>Email</FieldLabel>
-                  <Input
-                    {...field}
-                    disabled={submitting}
-                    placeholder="you@example.com"
-                    type="email"
-                  />
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
+          {/* Phone */}
+          <Controller
+            control={form.control}
+            name="phone"
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel>Phone</FieldLabel>
+                <Input
+                  {...field}
+                  disabled={submitting}
+                  placeholder="+250..."
+                  type="tel"
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
 
-            {/* Phone */}
-            <Controller
-              control={form.control}
-              name="phone"
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel>Phone</FieldLabel>
-                  <Input
-                    {...field}
-                    disabled={submitting}
-                    placeholder="+250 7xx xxx xxx"
-                    type="tel"
-                  />
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-
-            <Controller
-              control={form.control}
-              name="date"
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel>Date of tour</FieldLabel>
-                  <Popover onOpenChange={setOpen} open={open}>
-                    <PopoverTrigger asChild>
-                      <Button
-                        className="w-48 justify-between font-normal"
-                        disabled={submitting}
-                        id="date"
-                        variant="outline"
-                      >
-                        {field.value
-                          ? field.value.toLocaleDateString()
-                          : "Select date"}
-                        <ChevronDownIcon />
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent
-                      align="start"
-                      className="w-auto overflow-hidden p-0"
+          <Controller
+            control={form.control}
+            name="date"
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel>Date of tour</FieldLabel>
+                <Popover onOpenChange={setOpen} open={open}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      className="w-48 justify-between font-normal"
+                      disabled={submitting}
+                      id="date"
+                      variant="outline"
                     >
-                      <Calendar
-                        captionLayout="dropdown"
-                        mode="single"
-                        onSelect={(date) => {
-                          field.onChange(date);
-                          setOpen(false);
-                        }}
-                        selected={field.value}
-                      />
-                    </PopoverContent>
-                  </Popover>
-                </Field>
-              )}
-            />
+                      {field.value
+                        ? field.value.toLocaleDateString()
+                        : "Select date"}
+                      <ChevronDownIcon />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    align="start"
+                    className="w-auto overflow-hidden p-0"
+                  >
+                    <Calendar
+                      captionLayout="dropdown"
+                      mode="single"
+                      onSelect={(date) => {
+                        field.onChange(date);
+                        setOpen(false);
+                      }}
+                      selected={field.value}
+                    />
+                  </PopoverContent>
+                </Popover>
+              </Field>
+            )}
+          />
 
-            {/* Message */}
-            <Controller
-              control={form.control}
-              name="message"
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel>Message</FieldLabel>
-                  <Textarea
-                    {...field}
-                    className="min-h-24 resize-none"
-                    disabled={submitting}
-                    placeholder="Tell us about your travel plans..."
-                    rows={5}
-                  />
+          {/* Message */}
+          <Controller
+            control={form.control}
+            name="message"
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel>Message</FieldLabel>
+                <Textarea
+                  {...field}
+                  className="min-h-24 resize-none"
+                  disabled={submitting}
+                  placeholder="Tell us about your travel plans..."
+                  rows={5}
+                />
 
-                  <FieldDescription>
-                    Include destination, dates, and number of travelers.
-                  </FieldDescription>
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-          </FieldGroup>
-        </form>
-      </CardContent>
+                <FieldDescription>
+                  Include destination, dates, and number of travelers.
+                </FieldDescription>
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
+        </FieldGroup>
+      </form>
 
-      <CardFooter>
-        <Field orientation="horizontal">
-          <Button
-            disabled={submitting}
-            onClick={() => form.reset()}
-            type="button"
-            variant="outline"
-          >
-            Reset
-          </Button>
-          <Button disabled={submitting} form="booking-form" type="submit">
-            {submitting ? "Submitting..." : "  Submit Booking"}
-          </Button>
-        </Field>
-      </CardFooter>
-    </Card>
+      <Field orientation="horizontal">
+        <Button
+          className="rounded-full"
+          disabled={submitting}
+          form="booking-form"
+          size="xl"
+          type="submit"
+        >
+          {submitting ? "Submitting..." : "Book now"}
+        </Button>
+      </Field>
+    </div>
   );
 }
