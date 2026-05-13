@@ -8,7 +8,7 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/freesky_ventures/",
     tiktok: "https://www.tiktok.com/@freesky.venture",
     email: "freeskyventure@gmail.com",
-    whatsapp: "https://wa.me/250735051443",
+    whatsapp: "https://wa.me/250796891727",
   },
 };
 

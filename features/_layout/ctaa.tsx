@@ -6,7 +6,7 @@ export default function Cta() {
   return (
     <div className="min-h-[50vh] place-content-center p-4">
       <div className="relative mx-auto w-full max-w-2xl space-y-5 p-4 text-center md:py-8 lg:py-12">
-        <h2 className="font-syne-mono text-2xl tracking-tighter sm:text-4xl md:text-5xl">
+        <h2 className="text-2xl tracking-tighter sm:text-4xl md:text-5xl">
           Ready to{" "}
           <span className="font-medium font-serif italic tracking-tight">
             explore

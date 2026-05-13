@@ -5,7 +5,7 @@ export default function AboutLocation() {
     <div className="my-4 bg-background md:px-5 lg:px-8">
       <div className="container py-28">
         <div className="flex flex-col gap-6">
-          <p className="font-syne-mono text-3xl text-foreground/80 tracking-tight">
+          <p className="text-3xl text-foreground/80 tracking-tight">
             Our Location
           </p>
 

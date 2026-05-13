@@ -1,0 +1,127 @@
+import { ArrowUpRightIcon } from "lucide-react";
+import type { Route } from "next";
+import Link from "next/link";
+import { Suspense } from "react";
+import { BiLogoGmail } from "react-icons/bi";
+import { FaLinkedin, FaTiktok, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
+import { ThemeSwitcher } from "@/components/custom/theme-switcher";
+import { footerLinks } from "@/config/data";
+import { siteConfig } from "@/config/site";
+import FooterDate from "./footer-date";
+import SubscribeForm from "./sub-form";
+
+const socialLinks = [
+  {
+    name: "Instagram",
+    href: siteConfig.links.instagram,
+    icon: FaInstagram,
+  },
+  {
+    name: "Linkedin",
+    href: siteConfig.links.linkedin,
+    icon: FaLinkedin,
+  },
+  {
+    name: "Tiktok",
+    href: siteConfig.links.tiktok,
+    icon: FaTiktok,
+  },
+  {
+    name: "Gmail",
+    href: siteConfig.links.email,
+    icon: BiLogoGmail,
+  },
+  {
+    name: "Whatsapp",
+    href: siteConfig.links.whatsapp,
+    icon: FaWhatsapp,
+  },
+];
+
+export default function SiteFooter() {
+  return (
+    <footer>
+      <div className="container mx-auto mt-10 mb-8">
+        <div className="flex flex-col items-center gap-2 py-8 pb-20 md:py-16 lg:py-20 xl:gap-4">
+          <div className="grid w-full grid-cols-2 gap-6 gap-y-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-y-16">
+            <div className="flex flex-col justify-between lg:col-span-3">
+              <Link className="font-medium text-lg" href="/">
+                {siteConfig.name}
+              </Link>
+              <div className="flex gap-4 lg:gap-6">
+                {socialLinks.map((link) => (
+                  <a
+                    className="text-muted-foreground transition-colors duration-150 hover:text-primary"
+                    href={link.href}
+                    key={link.name}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <link.icon className="md:size-5" />
+                  </a>
+                ))}
+              </div>
+            </div>
+            {footerLinks.map((link) => (
+              <div className="space-y-4 text-sm lg:col-span-2" key={link.title}>
+                <span className="block font-medium">{link.title}</span>
+                <ul className="space-y-3">
+                  {link.links.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href as Route}
+                        {...(item.external
+                          ? {
+                              target: "_blank",
+                              rel: "noopener noreferrer",
+                            }
+                          : {})}
+                        className="group relative flex w-fit items-center gap-0.5 text-muted-foreground text-sm leading-5 duration-150 hover:text-primary"
+                      >
+                        {item.name}
+                        {item.external && (
+                          <ArrowUpRightIcon className="size-4" />
+                        )}
+                        <span className="absolute bottom-0.5 left-0 block h-px w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            <div className="col-span-2 space-y-4 text-sm lg:col-span-3">
+              <span className="block font-medium">
+                Subscribe to our newsletter
+              </span>
+              <div>
+                <p className="text-balance text-muted-foreground text-sm leading-5">
+                  Stay updated on new releases and features, guides, and case
+                  studies.
+                </p>
+              </div>
+              <SubscribeForm />
+            </div>
+          </div>
+          <div className="mt-12 flex w-full flex-wrap items-center justify-between gap-5">
+            <div className="flex flex-wrap gap-5 text-xs lg:min-w-50">
+              <Suspense>
+                <FooterDate />
+              </Suspense>
+              <a
+                className="text-balance text-muted-foreground text-sm leading-5"
+                href="https://www.rathon-rw.com/?utm_source=freeskyventures"
+                rel="noopener"
+                target="_blank"
+              >
+                Built By Rathon.
+              </a>
+            </div>
+            <ThemeSwitcher />
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

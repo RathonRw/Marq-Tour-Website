@@ -1,45 +1,35 @@
-import { ArrowRightIcon } from "lucide-react";
+import { CheckIcon } from "lucide-react";
 import Link from "next/link";
 import { departments } from "@/config/data";
 
 export default function Services() {
   return (
-    <section className="container space-y-7 py-16" id="services">
-      <h2 className="font-semibold font-syne-mono text-2xl lg:text-3xl">
-        Explore our services
-      </h2>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-10">
-        {departments.map((department, i) => (
-          <Link
-            className="group cursor-pointer rounded-2xl bg-background p-10 shadow duration-300 ease-in-out hover:scale-105 hover:rounded-4xl"
-            href="/contact"
-            key={i}
+    <section className="space-y-8" id="services">
+      <h2 className="font-medium text-xl md:text-2xl">Our services</h2>
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {departments.map((department) => (
+          <div
+            className="flex flex-col gap-6 rounded-md p-4 ring ring-foreground/10 md:p-6 dark:ring-foreground/15"
+            key={department.title}
           >
-            <div className="flex h-full flex-col gap-6">
-              <div className="size-9 place-content-center rounded-full bg-muted text-center text-foreground/70 text-xl transition-colors duration-300 ease-in-out group-hover:bg-primary group-hover:text-primary-foreground">
-                {i + 1}
-              </div>
-              <div className="space-y-3">
-                <p className="font-bold text-xl tracking-tight">
-                  {department.title}
-                </p>
-                <p className="font-medium text-lg tracking-tight">
-                  {department.subtitle}
-                </p>
-              </div>
-              <ul className="list-disc space-y-2">
-                {department.list.map((l, i) => (
-                  <li key={i}>{l}</li>
-                ))}
-              </ul>
-              <div className="mt-auto flex items-center gap-2">
-                <span className="font-semibold">Learn more</span>
-                <ArrowRightIcon className="text-primary" />
-              </div>
-            </div>
-          </Link>
+            <h4 className="font-medium text-xl">{department.title}</h4>
+            <ul className="flex flex-col gap-3">
+              {department.list.map((item) => (
+                <li className="flex gap-2 text-sm leading-5.75" key={item}>
+                  <CheckIcon className="size-4 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Link
+              className="mt-auto underline decoration-muted-foreground underline-offset-4 transition-all duration-300 hover:text-muted-foreground hover:decoration-foreground"
+              href={"/contact"}
+            >
+              Get started
+            </Link>
+          </div>
         ))}
-      </div>
+      </section>
     </section>
   );
 }

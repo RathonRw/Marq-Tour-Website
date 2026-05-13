@@ -48,7 +48,7 @@ export function ContactInfo() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            +250 735 051 443
+            +250 796 891 727
           </a>
         </p>
       </div>
