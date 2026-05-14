@@ -25,7 +25,6 @@ export function Cta({
             asChild
             className="min-h-10 rounded-full bg-muted px-6"
             size="lg"
-            variant={"secondary"}
           >
             <Link href={link.href as Route}>{link.label}</Link>
           </Button>
