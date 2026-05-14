@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 export default function Hero() {
   return (
     <section className="overflow-hidden">
-      <div className="container relative flex min-h-screen overflow-hidden bg-muted/80 pb-10 md:min-h-[400px] lg:min-h-[80vh] 2xl:min-h-[500px]">
+      <div className="container relative flex min-h-screen overflow-hidden bg-muted/80 py-10 md:min-h-[80vh] 2xl:min-h-125">
         <video
           autoPlay
           className="absolute inset-0 z-0 h-full w-full object-cover"
