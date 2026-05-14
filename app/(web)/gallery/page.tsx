@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Cta } from "@/features/_layout/cta";
 import AllImages from "@/features/gallery/all-images";
 
 export const metadata: Metadata = {
@@ -14,6 +15,10 @@ export default function AboutPage() {
         <h3 className="font-medium text-xl md:text-2xl">Explore our gallery</h3>
         <AllImages />
       </section>
+      <Cta
+        link={{ href: "/booking", label: "Plan Your Journey" }}
+        title="Ready to explore world together"
+      />
     </div>
   );
 }

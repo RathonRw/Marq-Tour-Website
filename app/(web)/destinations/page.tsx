@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { destinationsList } from "@/config/data";
+import { Cta } from "@/features/_layout/cta";
 import { PackageCard } from "@/features/about/package-card";
 
 export const metadata: Metadata = {
@@ -21,6 +22,10 @@ export default function DestinationsPage() {
           ))}
         </div>
       </section>
+      <Cta
+        link={{ href: "/booking", label: "Plan Your Journey" }}
+        title="Ready to explore world together"
+      />
     </div>
   );
 }
