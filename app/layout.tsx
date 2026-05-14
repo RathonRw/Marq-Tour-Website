@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { fontVariables } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
 import "./globals.css";
 
 import Providers from "@/components/providers";
@@ -51,7 +50,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      className={`${fontVariables} antialiased`}
+      lang="en"
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -69,9 +72,7 @@ export default function RootLayout({
         />
         <meta content={META_THEME_COLORS.light} name="theme-color" />
       </head>
-      <body
-        className={cn("relative font-source-sans antialiased", fontVariables)}
-      >
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>

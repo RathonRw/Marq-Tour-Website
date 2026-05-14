@@ -1,3 +1,5 @@
+import { PlusIcon } from "lucide-react";
+import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -5,47 +7,55 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export function FaqsSection() {
+export function HomeFaqs() {
   return (
-    <div className="container bg-background">
-      <div className="mx-auto min-h-screen w-full max-w-6xl lg:border-x">
-        <div className="grid min-h-[calc(100vh-3.5rem)] grid-cols-1 border-x md:mx-0 md:grid-cols-2 md:border-x-0 lg:mx-4">
-          <div className="space-y-4 px-4 pt-12 pb-4 md:border-r">
-            <h2 className="font-semibold text-3xl md:text-4xl">FAQs</h2>
-            <p className="text-muted-foreground">
-              Here are some common questions and answers that you might ask
-              about Free Sky Ventures.
-            </p>
-          </div>
-          <div className="place-content-center">
-            <Accordion collapsible defaultValue="item-1" type="single">
-              {questions.map((item) => (
-                <AccordionItem
-                  className="first:border-t last:border-b data-[state=open]:bg-card"
-                  key={item.id}
-                  value={item.id}
-                >
-                  <AccordionTrigger className="px-4 py-4 text-[15px] leading-6 hover:no-underline">
-                    {item.title}
-                  </AccordionTrigger>
-                  <AccordionContent className="px-4 pb-4 text-muted-foreground">
-                    {item.content}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-        <div className="flex min-h-14 items-center justify-center border-t">
-          <p className="text-muted-foreground">
-            Can't find what you're looking for?{" "}
-            <a className="text-primary hover:underline" href="/contact">
-              Contact Us
-            </a>
+    <section className="grid grid-cols-1 gap-6 md:grid-cols-2" id="faqs">
+      <div className="pt-12 pb-6 md:px-4">
+        <div className="space-y-5">
+          <h3 className="text-balance font-medium text-xl md:text-3xl">
+            Frequently Asked Questions
+          </h3>
+          <p className="font-medium text-muted-foreground text-sm">
+            For other question,{" "}
+            <Link className="underline underline-offset-4" href="/contact">
+              Contact us
+            </Link>
+            .
           </p>
         </div>
       </div>
-    </div>
+      <div className="relative place-content-center md:pr-4">
+        {/* vertical guide line */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-3 h-full w-px bg-border"
+        />
+
+        <Accordion collapsible type="single">
+          {questions.map((item) => (
+            <AccordionItem
+              className="group relative border-b pl-5"
+              key={item.id}
+              value={item.id}
+            >
+              {/*  plus */}
+              <PlusIcon
+                aria-hidden="true"
+                className="pointer-events-none absolute bottom-[-5.5px] left-[12.5px] size-2.5 -translate-x-1/2 text-muted-foreground group-last:hidden"
+              />
+
+              <AccordionTrigger className="px-4 py-4 font-normal text-base leading-6 hover:no-underline">
+                {item.title}
+              </AccordionTrigger>
+
+              <AccordionContent className="px-4 pb-4 text-base text-muted-foreground">
+                {item.content}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </section>
   );
 }
 

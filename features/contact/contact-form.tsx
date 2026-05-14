@@ -13,12 +13,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroupTextarea,
-} from "@/components/ui/input-group";
+import { Textarea } from "@/components/ui/textarea";
 import { sendContactEmail } from "@/server/contact.action";
 import { ContactFormSchema, type TContactSchema } from "@/server/schema";
 
@@ -58,7 +53,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="row-span-2 h-full min-h-[500px] w-full p-2 py-6 md:p-6 lg:p-10">
+    <div className="mx-auto flex w-full flex-col justify-center gap-15 sm:max-w-140">
       <form
         className="w-full space-y-6 lg:space-y-12"
         id="form-rhf-demo"
@@ -116,21 +111,14 @@ export function ContactForm() {
                 <FieldLabel htmlFor="form-rhf-demo-description">
                   How can we help?
                 </FieldLabel>
-                <InputGroup>
-                  <InputGroupTextarea
-                    {...field}
-                    aria-invalid={fieldState.invalid}
-                    className="min-h-[200px]"
-                    id="form-rhf-demo-description"
-                    placeholder="Describe it in at least 10 characters."
-                    rows={6}
-                  />
-                  <InputGroupAddon align="block-end">
-                    <InputGroupText className="tabular-nums">
-                      {field.value.length}/500 characters
-                    </InputGroupText>
-                  </InputGroupAddon>
-                </InputGroup>
+                <Textarea
+                  {...field}
+                  aria-invalid={fieldState.invalid}
+                  className="min-h-[200px]"
+                  id="form-rhf-demo-description"
+                  placeholder="Describe it in at least 10 characters."
+                  rows={6}
+                />
 
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
@@ -140,23 +128,21 @@ export function ContactForm() {
           />
         </FieldGroup>
 
-        <div className="flex justify-end">
-          <Button
-            className="min-w-40 rounded-full bg-primary text-primary-foreground"
-            disabled={submitting}
-            size="lg"
-            type="submit"
-          >
-            {submitting ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Sending...
-              </>
-            ) : (
-              "Talk to Us"
-            )}
-          </Button>
-        </div>
+        <Button
+          className="rounded-full bg-primary text-primary-foreground"
+          disabled={submitting}
+          size="xl"
+          type="submit"
+        >
+          {submitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Submitting...
+            </>
+          ) : (
+            "Submit"
+          )}
+        </Button>
       </form>
     </div>
   );

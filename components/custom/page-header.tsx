@@ -21,11 +21,11 @@ export default function PageHeader({
       <div
         className={cn(
           "relative mx-auto mt-1 flex max-w-3xl flex-col justify-between border-x",
-          className
+          className,
         )}
       >
         <div className="flex flex-col gap-6 px-2 py-8">
-          <h2 className="text-center font-semibold font-syne-mono text-lg tracking-tight md:text-2xl lg:text-4xl xl:text-5xl">
+          <h2 className="text-center font-semibold text-lg tracking-tight md:text-2xl lg:text-4xl xl:text-5xl">
             {title}
           </h2>
           <p className="mx-auto max-w-xl text-balance text-center text-muted-foreground text-sm md:text-base">

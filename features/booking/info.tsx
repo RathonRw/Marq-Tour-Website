@@ -7,10 +7,10 @@ import {
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
-export function ContactInfo() {
+export function BookingInfo() {
   return (
     <div className="flex flex-col gap-10">
-      <h3 className="text-h3">Contact our tour team</h3>
+      <h3 className="text-h3">Book your tour</h3>
       <p className="text-balance">
         Thinking of going on a tour? Get started with{" "}
         <Link className="underline underline-offset-4" href="/#services">

@@ -3,22 +3,16 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleCheckIcon, Loader2 } from "lucide-react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { siteConfig } from "@/config/site";
 import { SubFormSchema, type TSubFormSchema } from "@/server/schema";
 import { subscribe } from "@/server/subscribe.action";
 
-export default function FooterSubForm() {
+export default function SubscribeForm() {
   const [submitting, setSubmitting] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
 
@@ -62,7 +56,7 @@ export default function FooterSubForm() {
     return (
       <div className="flex flex-col gap-2">
         <p className="font-semibold text-muted-foreground text-sm">
-          You have subscribed to Free Sky Ventures.
+          You have subscribed to {siteConfig.name}.
         </p>
         <div className="flex items-center gap-1">
           <CircleCheckIcon className="size-5 text-green-500" />
@@ -75,47 +69,50 @@ export default function FooterSubForm() {
   }
 
   return (
-    <Form {...form}>
-      <form
-        className="flex w-full max-w-sm items-center space-x-2"
-        onSubmit={form.handleSubmit(onSubmit)}
-      >
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem className="flex flex-col gap-5">
-              <FormLabel className="sr-only font-bold">Email</FormLabel>
-              <FormControl>
-                <div className="flex items-center justify-between gap-4">
-                  <Input
-                    aria-label="Email address"
-                    autoComplete="email"
-                    placeholder="youremail@gmail.com"
-                    type="email"
-                    {...field}
-                  />
-                  <Button
-                    className="bg-primary text-primary-foreground"
-                    disabled={submitting}
-                    type="submit"
-                  >
-                    {submitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Subscribing...
-                      </>
-                    ) : (
-                      "Subscribe"
-                    )}
-                  </Button>
-                </div>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-      </form>
-    </Form>
+    <form
+      className="flex w-full max-w-sm items-center space-x-2"
+      onSubmit={form.handleSubmit(onSubmit)}
+    >
+      <Controller
+        control={form.control}
+        name="email"
+        render={({ field, fieldState }) => (
+          <Field data-invalid={fieldState.invalid}>
+            <FieldLabel className="sr-only" htmlFor="form-email">
+              Email
+            </FieldLabel>
+            <div className="flex items-center justify-between gap-2">
+              <Input
+                aria-invalid={fieldState.invalid}
+                aria-label="Email address"
+                autoComplete="email"
+                className="border-0 bg-muted shadow-none"
+                id="form-email"
+                placeholder="you@domain.com"
+                type="email"
+                {...field}
+              />
+              <Button
+                disabled={submitting || !field.value}
+                size={"lg"}
+                type="submit"
+                variant={"secondary"}
+              >
+                {submitting ? (
+                  <>
+                    <Loader2 className="animate-spin" />
+                    Subscribing...
+                  </>
+                ) : (
+                  "Subscribe"
+                )}
+              </Button>
+            </div>
+
+            {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+          </Field>
+        )}
+      />
+    </form>
   );
 }
