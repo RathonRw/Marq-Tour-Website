@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 export default function Hero() {
   return (
     <section className="overflow-hidden">
-      <div className="container relative flex min-h-[400px] overflow-hidden bg-muted/80 pb-10 lg:min-h-[80vh] 2xl:min-h-[500px]">
+      <div className="container relative flex min-h-screen overflow-hidden bg-muted/80 pb-10 md:min-h-[400px] lg:min-h-[80vh] 2xl:min-h-[500px]">
         <video
           autoPlay
           className="absolute inset-0 z-0 h-full w-full object-cover"
@@ -27,7 +27,7 @@ export default function Hero() {
             Uncover Rwanda&apos;s most beautiful destinations, from
             Kigali&apos;s charm to the breathtaking landscapes of the north.
           </p>
-          <div className="flex flex-col items-center gap-4 md:flex-row">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center">
             <Button asChild className="dark w-fit rounded-full" size="xl">
               <Link href="/booking">Book Now</Link>
             </Button>
@@ -35,7 +35,7 @@ export default function Hero() {
               asChild
               className="dark w-fit rounded-full"
               size="xl"
-              variant={"ghost"}
+              variant={"outline"}
             >
               <Link href="/contact">Contact us</Link>
             </Button>

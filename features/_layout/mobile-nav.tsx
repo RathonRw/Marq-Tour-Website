@@ -45,15 +45,15 @@ export function MobileNav() {
         createPortal(
           <div
             className={cn(
-              "bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/50",
-              "fixed top-14 right-0 bottom-0 left-0 z-40 flex flex-col overflow-hidden border-t md:hidden"
+              "bg-background",
+              "fixed top-14 right-0 bottom-0 left-0 z-40 flex flex-col overflow-hidden border-t md:hidden",
             )}
             id="mobile-menu"
           >
             <div
               className={cn(
                 "data-[slot=open]:zoom-in-97 flex h-full flex-col ease-out data-[slot=open]:animate-in",
-                "size-full p-4"
+                "size-full p-4",
               )}
               data-slot={open ? "open" : "closed"}
             >
@@ -65,7 +65,7 @@ export function MobileNav() {
                         variant: "ghost",
                         className: "justify-start",
                       }),
-                      pathname === link.href && "text-primary"
+                      pathname === link.href && "text-primary",
                     )}
                     href={link.href}
                     key={link.label}
@@ -76,7 +76,7 @@ export function MobileNav() {
               </div>
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </>
   );
