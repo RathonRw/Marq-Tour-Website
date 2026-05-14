@@ -21,11 +21,7 @@ export function Cta({
           </p>
         )}
         <div className="flex flex-col items-center justify-center">
-          <Button
-            asChild
-            className="min-h-10 rounded-full bg-muted px-6"
-            size="lg"
-          >
+          <Button asChild className="rounded-full" size="xl">
             <Link href={link.href as Route}>{link.label}</Link>
           </Button>
         </div>

@@ -17,7 +17,7 @@ export default function SiteHeader() {
   return (
     <header
       className={cn(
-        "container fixed top-0 z-50 w-full border-transparent",
+        "container fixed top-0 z-50 w-full",
         scrolled && "border-b bg-background",
         pathname === "/" ? "text-white" : "hover:bg-background",
         pathname && scrolled && "text-foreground",
